@@ -1,10 +1,4 @@
-import sum, {orderByProps,destructFunc} from '../basic';
-
-test('should sum', () => {
-  const result = sum([1, 2, 3]);
-
-  expect(result).toBe(6);
-});
+import {orderByProps,destructFunc} from '../basic';
 
 // проверка работы ФУНКЦИИ СОРТИРОВКИ СВОЙСТВ
 test('shoud check sort of object', () => {

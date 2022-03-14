@@ -1,10 +1,6 @@
 // TODO: write your code here
-import sum, {orderByProps, destructFunc} from './basic';
+import {orderByProps, destructFunc} from './basic';
 
-console.log('worked');
-console.log(sum([1, 2]));
-
-//================================================================
 
 let obj = {name: "мечник", health: 10, level: 2, attack: 80, defence: 40};
 const templateArr = [ "level","name"];

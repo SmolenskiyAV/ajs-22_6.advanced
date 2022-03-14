@@ -1,15 +1,3 @@
-export default function sum(items) {
-  let result = 0;
-  for (const item of items) {
-    result += item;
-  }
-  return result;
-}
-
-//export let errMessage1 = ''; // экспорт значения ошибки (проверка длины имени и типа персонажа), для тестировки в jest
-//export let errMessage2 = '';  // экспорт значения ошибки (проверка LevelUp персонажа), для тестировки в jest
-
-// ---------------------------------------------------------------------------------------------------------------------
 
 export function orderByProps(obj, templateArr) {    // ФУНКЦИЯ СОРТИРОВКИ СВОЙСТВ
 
@@ -22,16 +10,21 @@ export function orderByProps(obj, templateArr) {    // ФУНКЦИЯ СОРТИ
   let orderedArr = [];                          // врЕменный массив для хранения тех свойств, которые подпадают под указанный порядок сортировки (templateArr)
   let otherArr = [];                            // врЕменный массив, для хранения свойств исходного объекта, которые не подпадают под указанный порядок сортировки (templateArr)
   
+  console.log('"temporArr" is Array?' + ' Answer is: ' + (Array.isArray(temporArr))); // КОНТРОЛЬНАЯ ТОЧКА
 
+  
   for (let i = 0; i < templateArrLength; i++) {
-    
+    /*
     for (let m = 0; m < temporArrLength; m++) {
       
       if (temporArr[m][0] === templateArr[i]) {   // если имя свойства исходного массива совпадает со значением массива templateArr
 
         orderedArr.push(temporArr[m]);            //  заполнение массива orderedArr 
       }
-    };
+    };*/
+    
+    orderedArr = temporArr.filter(item => item[0] == templateArr[i]); //  заполнение массива orderedArr 
+    
   };
 
   for (let m = 0; m < temporArrLength; m++) {
@@ -74,13 +67,15 @@ export function orderByProps(obj, templateArr) {    // ФУНКЦИЯ СОРТИ
 
 //-----------------------------------------------------------------------------------------------------------
 
-export function destructFunc(obj) { // ФУНКЦИЯ ДЕСТРУКТУРИРОВАНИЯ
+export function destructFunc(oBj) { // ФУНКЦИЯ ДЕСТРУКТУРИРОВАНИЯ
+
+  const obj = {...oBj}; // копирование объекта в новую переменную.
 
   if (obj.special) {
     
     let result = obj.special;       // извлечение целевого свойства из объекта
     let len = obj.special.length;   // длина массива извлечённого целевого свойства
-
+    
     for (let i = 0; i < len; i++) {
 
       if (!(result[i].hasOwnProperty('description'))) result[i]['description'] = 'Описание недоступно';   // добавление свойства по умолчанию (если оно не определено)
